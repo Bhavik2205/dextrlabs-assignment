@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "d961c728-8280-4ba8-bfee-f686bd222041",
+		"name": "DextrLabs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26431624",
+		"_collection_link": "https://universal-flare-758438.postman.co/workspace/New-Team-Workspace~30c27b8b-a92f-4e2b-9ffb-34cc89224bea/collection/26431624-d961c728-8280-4ba8-bfee-f686bd222041?action=share&creator=26431624&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  createUser(input: {username: \"jack_ryan\", password: \"password123\"}) {\n    username\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": "localhost:3000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGE1OTU3N2FjYmMxMGY2YjdiYzI1MTQiLCJpYXQiOjE2ODg1NzMzNjd9.vdNIj8K2TIcmdKEgTnYP4tn8m5YXUQOUXBp7677dZfs"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  login(username: \"jack\", password: \"password123\")\n}",
+						"variables": ""
+					}
+				},
+				"url": "localhost:3000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "create Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGE1OThlOGFhZjMyNGNjNDkxOGVjYzkiLCJpYXQiOjE2ODg1NzczODN9.a16Cmo7li8Ndu_bWLfh-VIKXdgv8UNrhl0YkfdqlLl8"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  createPost(input: {title: \"Test Blog 1\", content: \"Test Blog body.\"}) {\n    id\n    title\n    content\n    author {\n      id\n      username\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": "localhost:3000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "update Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGE1OTU3N2FjYmMxMGY2YjdiYzI1MTQiLCJpYXQiOjE2ODg1NzMzNjd9.vdNIj8K2TIcmdKEgTnYP4tn8m5YXUQOUXBp7677dZfs"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  updatePost(id: \"64a596b7acbc10f6b7bc2517\", input: {\n    title: \"New Title 1\",\n    content: \"Updated content\"\n  }) {\n    id\n    title\n    content\n    author {\n      id\n      username\n    }\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": "localhost:3000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "delete Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGE1OTU3N2FjYmMxMGY2YjdiYzI1MTQiLCJpYXQiOjE2ODg1NzMzNjd9.vdNIj8K2TIcmdKEgTnYP4tn8m5YXUQOUXBp7677dZfs"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  deletePost(id: \"64a59a1525056b9f78ad57c1\")\n}\n",
+						"variables": ""
+					}
+				},
+				"url": "localhost:3000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "create Comment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGE1OTU3N2FjYmMxMGY2YjdiYzI1MTQiLCJpYXQiOjE2ODg1NzMzNjd9.vdNIj8K2TIcmdKEgTnYP4tn8m5YXUQOUXBp7677dZfs"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  createComment(input: { postId: \"64a59d21c04fba8358998310\", text: \"This is a test comment 8.\" }) {\n    id\n    text\n    post {\n      id\n      title\n    }\n    author {\n        id\n        username\n    }\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": "localhost:3000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "get Comment",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n  comments(postId: \"64a59d21c04fba8358998310\", page: 2, limit: 1) {\n    id\n    text\n    post {\n      id\n      title\n    }\n    author {\n        id\n        username\n    }\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": "localhost:3000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "get Posts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n  posts {\n    id\n    title\n    content\n    author {\n      id\n      username\n    }\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": "localhost:3000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "get Post by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n  post(id: \"64a59d21c04fba8358998310\") {\n    id\n    title\n    content\n    author {\n      id\n      username\n    }\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": "localhost:3000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "get Profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGE1OThlOGFhZjMyNGNjNDkxOGVjYzkiLCJpYXQiOjE2ODg1NzQyNDd9.GCPkXjWQ-yr9pxzfasVWIBBprpNKdv-oCUe19Hmskps"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n  me {\n    id\n    username\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": "localhost:3000/graphql"
+			},
+			"response": []
+		}
+	]
+}
